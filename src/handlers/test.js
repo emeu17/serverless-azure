@@ -5,6 +5,6 @@ module.exports.initialTest = async function (context, req) {
 
     context.res = {
         // status: 200, /* Defaults to 200 */
-        body: 'This is a test',
+        body: 'This is a test route on Azure!',
     };
 };
