@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: azurequickstart
+service: azurequickstartemeu17-2
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -21,6 +21,8 @@ provider:
   name: azure
   region: West US 2
   runtime: nodejs12
+  storageAccount:
+        name: slswus2dev2022emeu17-2
   # os: windows  # windows is default, linux is available
   # prefix: "sample"  # prefix of generated resource name
   # subscriptionId: A356AC8C-E310-44F4-BF85-C7F29044AF99
@@ -95,6 +97,7 @@ functions:
       - http: true
         methods:
           - GET
+        route: v1/test
         authLevel: anonymous
   # The following are a few examples of other events you can configure:
   # storageBlob:
