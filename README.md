@@ -1,6 +1,8 @@
 # Serverless Azure project
 
-Right now only contains the 2 example functions + a test function. 
+Right now only contains the 2 example functions + a test function.
+
+/v1/test    - test route
 
 # Azure Functions
 
