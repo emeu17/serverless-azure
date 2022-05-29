@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: azurequickstart
+service: azurequickstart-emeu
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -21,6 +21,8 @@ provider:
   name: azure
   region: West US 2
   runtime: nodejs12
+  storageAccount:
+        name: emeu17-try2345123
   # os: windows  # windows is default, linux is available
   # prefix: "sample"  # prefix of generated resource name
   # subscriptionId: A356AC8C-E310-44F4-BF85-C7F29044AF99
@@ -73,6 +75,21 @@ package:
     # - include-me-dir/**
 
 functions:
+  cosmos:
+    handler: src/handlers/cosmos.write
+    events:
+      - http: true
+        methods:
+          - POST
+        route: v1/writedata
+        authLevel: anonymous
+      - cosmosDB: true
+        direction: out
+        name: record # name of input parameter in function signature
+        databaseName: sampleDB
+        collectionName: sampleCollection
+        connectionStringSetting: 'https://emeu17-cosmos.documents.azure.com:443/' # name of appsetting with the connection string
+        createIfNotExists: true # A boolean value to indicate whether the collection is created when it doesn't exist.
   hello:
     handler: src/handlers/hello.sayHello
     events:
