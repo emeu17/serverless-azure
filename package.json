@@ -11,6 +11,7 @@
     "serverless"
   ],
   "dependencies": {
+    "mongodb": "^4.6.0",
     "node": "^12.22.11"
   },
   "devDependencies": {

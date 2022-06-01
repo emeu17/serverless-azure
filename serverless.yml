@@ -75,21 +75,14 @@ package:
     # - include-me-dir/**
 
 functions:
-  cosmos:
-    handler: src/handlers/cosmos.write
+  mongodb:
+    handler: src/handlers/mongodb.write
     events:
       - http: true
         methods:
           - POST
-        route: v1/writedata
-        authLevel: anonymous
-      - cosmosDB: true
-        direction: out
-        name: record # name of input parameter in function signature
-        databaseName: sampleDB
-        collectionName: sampleCollection
-        connectionStringSetting: 'https://emeu17-cosmos.documents.azure.com:443/' # name of appsetting with the connection string
-        createIfNotExists: true # A boolean value to indicate whether the collection is created when it doesn't exist.
+        authLevel: anonymous # can also be `function` or `admin`
+
   hello:
     handler: src/handlers/hello.sayHello
     events:
